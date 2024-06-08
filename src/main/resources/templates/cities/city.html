@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${city.getName()}"></title>
+
+
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+    />
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+            rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/css/apartment-listings-styles.css">
+
+    <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"
+    ></script>
+
+    <style>
+
+    </style>
+</head>
+<body>
+
+<div class="container container-md p-0 mt-5">
+    <h1 class="h1" th:text="'місто ' + ${city.getName()}">City name</h1>
+
+    <!--    List of districts-->
+    <div class="my-2">
+        <div class="my-2 d-flex justify-content-between" th:each="dist : ${city.getDistricts()}">
+            <a class="city-info" th:href="@{${dist.url}}"
+               th:text="${dist.getName()}"></a>
+            <div class="d-flex justify-content-between" style="max-width: calc(100% - 200px);">
+                <button class="mx-1 btn btn-primary">Оновити</button>
+                <button class="mx-1 btn btn-danger">Видалити</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+</div>
+
+
+</body>
+</html>
