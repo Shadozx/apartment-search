@@ -243,6 +243,7 @@ public class LvivApartmentParser {
 
     }
 
+
     private void showCity(City city) {
         System.out.println("City name -" + city.getName());
 
